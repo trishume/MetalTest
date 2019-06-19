@@ -10,6 +10,8 @@
 		6A6CF11822BAD371000DFC05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6CF11722BAD371000DFC05 /* AppDelegate.swift */; };
 		6A6CF11A22BAD372000DFC05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A6CF11922BAD372000DFC05 /* Assets.xcassets */; };
 		6A6CF12622BAD7DD000DFC05 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 6A6CF12522BAD7DD000DFC05 /* Shaders.metal */; };
+		6A6CF12822BAEB5C000DFC05 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6CF12722BAEB5C000DFC05 /* MetalView.swift */; };
+		6A6CF12C22BAEBD4000DFC05 /* CocoaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6CF12B22BAEBD4000DFC05 /* CocoaView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		6A6CF11E22BAD372000DFC05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A6CF11F22BAD372000DFC05 /* MetalTest2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MetalTest2.entitlements; sourceTree = "<group>"; };
 		6A6CF12522BAD7DD000DFC05 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		6A6CF12722BAEB5C000DFC05 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
+		6A6CF12B22BAEBD4000DFC05 /* CocoaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 				6A6CF11E22BAD372000DFC05 /* Info.plist */,
 				6A6CF11F22BAD372000DFC05 /* MetalTest2.entitlements */,
 				6A6CF12522BAD7DD000DFC05 /* Shaders.metal */,
+				6A6CF12722BAEB5C000DFC05 /* MetalView.swift */,
+				6A6CF12B22BAEBD4000DFC05 /* CocoaView.swift */,
 			);
 			path = MetalTest2;
 			sourceTree = "<group>";
@@ -129,7 +135,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A6CF12822BAEB5C000DFC05 /* MetalView.swift in Sources */,
 				6A6CF12622BAD7DD000DFC05 /* Shaders.metal in Sources */,
+				6A6CF12C22BAEBD4000DFC05 /* CocoaView.swift in Sources */,
 				6A6CF11822BAD371000DFC05 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
