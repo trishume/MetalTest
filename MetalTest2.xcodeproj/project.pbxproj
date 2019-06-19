@@ -9,16 +9,16 @@
 /* Begin PBXBuildFile section */
 		6A6CF11822BAD371000DFC05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6CF11722BAD371000DFC05 /* AppDelegate.swift */; };
 		6A6CF11A22BAD372000DFC05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A6CF11922BAD372000DFC05 /* Assets.xcassets */; };
-		6A6CF11D22BAD372000DFC05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A6CF11B22BAD372000DFC05 /* Main.storyboard */; };
+		6A6CF12622BAD7DD000DFC05 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 6A6CF12522BAD7DD000DFC05 /* Shaders.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6A6CF11422BAD371000DFC05 /* MetalTest2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalTest2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A6CF11722BAD371000DFC05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A6CF11922BAD372000DFC05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6A6CF11C22BAD372000DFC05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6A6CF11E22BAD372000DFC05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A6CF11F22BAD372000DFC05 /* MetalTest2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MetalTest2.entitlements; sourceTree = "<group>"; };
+		6A6CF12522BAD7DD000DFC05 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,9 +53,9 @@
 			children = (
 				6A6CF11722BAD371000DFC05 /* AppDelegate.swift */,
 				6A6CF11922BAD372000DFC05 /* Assets.xcassets */,
-				6A6CF11B22BAD372000DFC05 /* Main.storyboard */,
 				6A6CF11E22BAD372000DFC05 /* Info.plist */,
 				6A6CF11F22BAD372000DFC05 /* MetalTest2.entitlements */,
+				6A6CF12522BAD7DD000DFC05 /* Shaders.metal */,
 			);
 			path = MetalTest2;
 			sourceTree = "<group>";
@@ -119,7 +119,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A6CF11A22BAD372000DFC05 /* Assets.xcassets in Resources */,
-				6A6CF11D22BAD372000DFC05 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,22 +129,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A6CF12622BAD7DD000DFC05 /* Shaders.metal in Sources */,
 				6A6CF11822BAD371000DFC05 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		6A6CF11B22BAD372000DFC05 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6A6CF11C22BAD372000DFC05 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		6A6CF12022BAD372000DFC05 /* Debug */ = {
