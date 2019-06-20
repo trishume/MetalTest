@@ -32,7 +32,7 @@ class MetalView: MTKView, MTKViewDelegate {
         let pointSize = view.convertFromBacking(size)
         renderer.viewportSize.x = UInt32(pointSize.width)
         renderer.viewportSize.y = UInt32(pointSize.height)
-        print("changed \(renderer.viewportSize)")
+//        print("changed \(renderer.viewportSize)")
         //        view.draw()
         view.needsDisplay = true
     }
@@ -42,7 +42,7 @@ class MetalView: MTKView, MTKViewDelegate {
         guard let commandBuffer = renderer.draw(passDescriptor: passDescriptor) else { return }
         commandBuffer.present(view.currentDrawable!)
         commandBuffer.commit()
-        print("draw \(renderer.viewportSize)")
+//        print("draw \(renderer.viewportSize)")
         //        commandBuffer.waitUntilScheduled()
         //        view.currentDrawable!.present()
         //        commandBuffer.waitUntilCompleted()

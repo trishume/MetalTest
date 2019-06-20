@@ -8,6 +8,8 @@
 
 import Cocoa
 
+// Thanks to https://stackoverflow.com/questions/45375548/resizing-mtkview-scales-old-content-before-redraw
+// for the recipe behind this, although I had to add presentsWithTransaction and the wait to make it glitch-free
 class MetalLayerView: NSView, CALayerDelegate {
     var renderer : Renderer
     var metalLayer : CAMetalLayer!
@@ -20,6 +22,10 @@ class MetalLayerView: NSView, CALayerDelegate {
         
         self.wantsLayer = true
         self.layerContentsRedrawPolicy = .duringViewResize
+        
+        // This property only matters in the case of a rendering glitch, which shouldn't happen anymore
+        // The .topLeft version makes glitches less noticeable for normal UIs,
+        // while .scaleAxesIndependently matches what MTKView does and makes them very noticeable
 //        self.layerContentsPlacement = .topLeft
         self.layerContentsPlacement = .scaleAxesIndependently
     }
@@ -50,6 +56,9 @@ class MetalLayerView: NSView, CALayerDelegate {
     }
     
     func display(_ layer: CALayer) {
+        // stress test with 100ms sleep, still works if this is uncommented
+//        Thread.sleep(forTimeInterval: 0.1)
+        
         let drawable = metalLayer.nextDrawable()!
         
         let passDescriptor = MTLRenderPassDescriptor()
