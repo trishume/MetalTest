@@ -40,9 +40,11 @@ class MetalLayerView: NSView, CALayerDelegate {
         metalLayer.device = renderer.device
         metalLayer.delegate = self
         
+        metalLayer.allowsNextDrawableTimeout = false
+        
+        // these properties are crucial to resizing working
         metalLayer.autoresizingMask = CAAutoresizingMask(arrayLiteral: [.layerHeightSizable, .layerWidthSizable])
         metalLayer.needsDisplayOnBoundsChange = true
-        
         metalLayer.presentsWithTransaction = true
         
         return metalLayer
@@ -52,7 +54,8 @@ class MetalLayerView: NSView, CALayerDelegate {
         super.setFrameSize(newSize)
         renderer.viewportSize.x = UInt32(newSize.width)
         renderer.viewportSize.y = UInt32(newSize.height)
-        metalLayer.drawableSize = newSize
+        // the conversion below is necessary for high DPI drawing
+        metalLayer.drawableSize = convertToBacking(newSize)
     }
     
     func display(_ layer: CALayer) {
