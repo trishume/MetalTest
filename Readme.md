@@ -1,4 +1,4 @@
-# Metal Test Project
+# Metal Window Resizing Test Project
 
 The goal of this project was to figure out a way to do glitchless smooth window resizing with Metal, I succeeded. `MTKView` has a problem where the redrawing is not synchronized with the window resize so it draws stretched frames, but there's a way to use `CAMetalLayer` to make it work.
 
