@@ -29,8 +29,9 @@ class MetalView: MTKView, MTKViewDelegate {
     }
     
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-        renderer.viewportSize.x = UInt32(size.width)
-        renderer.viewportSize.y = UInt32(size.height)
+        let pointSize = view.convertFromBacking(size)
+        renderer.viewportSize.x = UInt32(pointSize.width)
+        renderer.viewportSize.y = UInt32(pointSize.height)
         print("changed \(renderer.viewportSize)")
         //        view.draw()
         view.needsDisplay = true

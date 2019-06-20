@@ -35,9 +35,9 @@ class Renderer {
     func draw(passDescriptor: MTLRenderPassDescriptor) -> MTLCommandBuffer? {
         guard let commandBuffer = commandQueue.makeCommandBuffer() else { return nil }
         guard let encoder = commandBuffer.makeRenderCommandEncoder(descriptor: passDescriptor) else { return nil }
-        let vertexData: [Float] = [ 250, -250, 0, 1, 0, 0,
-                                    -250, -250, 0, 0, 1, 0,
-                                    0,  250, 0, 0, 0, 1 ]
+        let vertexData: [Float] = [ -1.0, 0, 0, 1, 0, 0,
+                                    0, 0, 0, 1, 0, 0,
+                                    125,  125, 0, 1, 0, 0 ]
         encoder.setVertexBytes(vertexData,
                                length: vertexData.count * MemoryLayout<Float>.stride,
                                index: 0)

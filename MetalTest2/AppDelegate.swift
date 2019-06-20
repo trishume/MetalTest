@@ -19,15 +19,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     var window: NSWindow!
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        window = NSWindow(contentRect: NSMakeRect(10, 10, 600, 900), styleMask: [.titled, .resizable, .closable, .miniaturizable], backing: .buffered, defer: false)
+        window = NSWindow(contentRect: NSMakeRect(10, 10, 600, 500), styleMask: [.titled, .resizable, .closable, .miniaturizable], backing: .buffered, defer: false)
         window.makeKeyAndOrderFront(nil)
         window.delegate = self
         
         let metalView = MetalView(frame: NSRect(origin: CGPoint.zero, size: window.frame.size))
         let cocoaView = CocoaView()
-        let layerView = CocoaView()
-        layerView.wantsLayer = true
-        let stack = NSStackView(views: [metalView, cocoaView, layerView])
+//        let layerView = CocoaView()
+//        layerView.wantsLayer = true
+        let metalLayerView = MetalLayerView(frame: NSRect(origin: CGPoint.zero, size: window.frame.size))
+        let stack = NSStackView(views: [metalView, cocoaView, metalLayerView])
         stack.orientation = .vertical
         stack.distribution = .fillEqually
         

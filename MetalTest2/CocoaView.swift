@@ -13,11 +13,17 @@ class CocoaView: NSView {
         super.draw(dirtyRect)
 
         // Drawing code here.
-        NSColor.white.setFill()
+        NSColor.black.setFill()
         bounds.fill()
         
         NSColor.red.setFill()
-        NSRect(x: 25, y: 25, width: 250, height: bounds.size.height - 50).fill()
+//        NSRect(x: 25, y: 25, width: 250, height: bounds.size.height - 50).fill()
+        let path = NSBezierPath()
+        path.move(to: NSPoint(x: 25, y: 25))
+        path.line(to: NSPoint(x: 150, y: 150))
+        path.line(to: NSPoint(x: bounds.size.width - 25, y: 25))
+        path.close()
+        path.fill()
     }
     
 }

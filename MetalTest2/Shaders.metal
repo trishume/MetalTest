@@ -27,7 +27,13 @@ vertex VertexOut vertex_main(device const VertexIn *vertices [[buffer(0)]],
     
     // Get the viewport size and cast to float.
     vector_float2 viewportSize = vector_float2(*viewportSizePointer);
-    pixelSpacePosition -= (viewportSize / 2.0) - 300.0;
+    
+    // hacky way of doing things differently for different vertices
+    pixelSpacePosition -= (viewportSize / 2.0) - 25.0;
+    
+    if(vertices[vertexID].position.x == -1.0) {
+        pixelSpacePosition.x = (viewportSize.x / 2.0) - 25.0;
+    }
     
     
     // To convert from positions in pixel space to positions in clip-space,
