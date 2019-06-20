@@ -37,6 +37,8 @@ class MetalLayerView: NSView, CALayerDelegate {
         metalLayer.autoresizingMask = CAAutoresizingMask(arrayLiteral: [.layerHeightSizable, .layerWidthSizable])
         metalLayer.needsDisplayOnBoundsChange = true
         
+        metalLayer.presentsWithTransaction = true
+        
         return metalLayer
     }
 
@@ -58,7 +60,8 @@ class MetalLayerView: NSView, CALayerDelegate {
         colorAttachment.clearColor = MTLClearColor(red: 0, green: 0, blue: 0, alpha: 0)
         
         let commandBuffer: MTLCommandBuffer = renderer.draw(passDescriptor: passDescriptor)!
-        commandBuffer.present(drawable)
         commandBuffer.commit()
+        commandBuffer.waitUntilScheduled()
+        drawable.present()
     }
 }
