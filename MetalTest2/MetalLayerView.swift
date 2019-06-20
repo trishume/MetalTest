@@ -40,6 +40,12 @@ class MetalLayerView: NSView, CALayerDelegate {
         metalLayer.device = renderer.device
         metalLayer.delegate = self
         
+        // If you're using the strategy of .topLeft placement and not presenting with transaction
+        // to just make the glitches less visible instead of eliminating them, it can help to make
+        // the background color the same as the background of your app, so the glitch artifacts
+        // (solid color bands at the edge of the window) are less visible.
+//        metalLayer.backgroundColor = CGColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        
         metalLayer.allowsNextDrawableTimeout = false
         
         // these properties are crucial to resizing working
@@ -56,6 +62,15 @@ class MetalLayerView: NSView, CALayerDelegate {
         renderer.viewportSize.y = UInt32(newSize.height)
         // the conversion below is necessary for high DPI drawing
         metalLayer.drawableSize = convertToBacking(newSize)
+        self.viewDidChangeBackingProperties()
+    }
+    
+    // This will hopefully be called if the window moves between monitors of
+    // different DPIs but I haven't tested this part
+    override func viewDidChangeBackingProperties() {
+        guard let window = self.window else { return }
+        // This is necessary to render correctly on retina displays with the topLeft placement policy
+        metalLayer.contentsScale = window.backingScaleFactor
     }
     
     func display(_ layer: CALayer) {
